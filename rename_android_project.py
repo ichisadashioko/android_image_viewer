@@ -33,13 +33,13 @@ parser.add_argument(
 parser.add_argument(
     '--source_app_name',
     type=str,
-    default='network_monitor',
+    default=source_app_name,
 )
 
 parser.add_argument(
     '--source_package',
     type=str,
-    default='io.github.ichisadashioko.android.network_monitor',
+    default=source_package,
 )
 
 parser.add_argument('-r', '--r', '-run', '--run', dest='run', action='store_true')
