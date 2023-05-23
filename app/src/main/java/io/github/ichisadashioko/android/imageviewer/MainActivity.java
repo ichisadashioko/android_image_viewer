@@ -1,4 +1,4 @@
-package io.github.ichisadashioko.android.network_monitor;
+package io.github.ichisadashioko.android.imageviewer;
 
 import android.app.Activity;
 import android.content.Context;

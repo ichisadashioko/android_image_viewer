@@ -30,7 +30,7 @@ jobs:
     - run: ./gradle-6.5/bin/gradle wrapper
     - run: bash ./gradlew build
 
-    - run: mv app/build/outputs/apk/debug/app-debug.apk android_network_monitor.apk
+    - run: mv app/build/outputs/apk/debug/app-debug.apk android_image_viewer.apk
     - uses: actions/upload-artifact@v2
       with:
-        path: android_network_monitor*.apk
+        path: android_image_viewer*.apk

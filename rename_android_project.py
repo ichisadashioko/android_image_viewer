@@ -71,6 +71,7 @@ IGNORE_FILENAME_LIST = [
     '.gitmodules',
     'gradlew',
     'gradlew.bat',
+    '.gradle',
 
     current_filename,
 ]

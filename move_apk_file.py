@@ -14,7 +14,7 @@ input_filepath = 'app/build/outputs/apk/debug/app-debug.apk'
 if not os.path.exists(input_filepath):
     raise Exception(f'{input_filepath} does not exist')
 
-output_filepath = f'android_network_monitor_{time.time_ns()}.apk'
+output_filepath = f'android_image_viewer_{time.time_ns()}.apk'
 print(f'output_filepath {output_filepath}')
 
 if is_github_actions:
