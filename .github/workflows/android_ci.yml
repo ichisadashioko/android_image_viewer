@@ -1,0 +1,36 @@
+name: CI
+on: workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - run: sudo apt install -y tree wget unzip python3
+    - run: wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+    - run: unzip commandlinetools-linux-9477386_latest.zip
+    - run: mkdir -p ANDROID_SDK_ROOT
+    - run: ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --update
+    - run: ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --licenses
+    - run: yes | ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --install "build-tools;28.0.3"
+    - run: yes | ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --install "platform-tools"
+    - run: yes | ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --install "platforms;android-28"
+    - run: yes | ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --install "tools"
+    - run: yes | ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --install "patcher;v4"
+    - run: yes | ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --no_https --install "emulator"
+    - run: ./cmdline-tools/bin/sdkmanager --sdk_root=ANDROID_SDK_ROOT --licenses
+
+    # - name: setup local.properties for gradle
+    - run: python3 config_gradle_local.properties.py
+
+    - run: tree .
+    - run: wget https://services.gradle.org/distributions/gradle-6.5-bin.zip
+    - run: unzip gradle-6.5-bin.zip
+    - run: ./gradle-6.5/bin/gradle wrapper
+    - run: bash ./gradlew build
+
+    - run: mv app/build/outputs/apk/debug/app-debug.apk android_network_monitor.apk
+    - uses: actions/upload-artifact@v2
+      with:
+        path: android_network_monitor*.apk

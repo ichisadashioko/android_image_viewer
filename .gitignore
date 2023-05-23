@@ -1,0 +1,25 @@
+*.iml
+.gradle
+local.properties
+.idea
+.DS_Store
+build
+captures
+.externalNativeBuild
+.cxx
+# gradle/wrapper/gradle-wrapper.jar
+app/build
+*.png
+*.zip
+*.mp4
+.project
+.settings
+.classpath
+google-java-format-1.8-all-deps.jar
+.ipynb_checkpoints
+android-ndk-r20b
+gradle-6.5
+custom_bashrc
+cmdline-tools
+ANDROID_SDK_ROOT
+custom_bashrc.sh
