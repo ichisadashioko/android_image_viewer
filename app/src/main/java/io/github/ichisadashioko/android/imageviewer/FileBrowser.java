@@ -23,11 +23,11 @@ public class FileBrowser extends Activity {
 
         filepath_edit_text = (EditText) findViewById(R.id.filepath_edit_text);
         show_filepath_button = (Button) findViewById(R.id.show_filepath_button);
-        children_file_container = (LinearLayout) findViewById(R.id.children_file_container);
+        children_file_container = findViewById(R.id.children_file_container);
     }
 
     public static String[] SUPPORTED_FILE_EXTENSIONS = {
-            ".JPG", ".JPEG", ".PNG", ".ZIP", ".RAR", ".CRB", ".WEBP"
+        ".JPG", ".JPEG", ".PNG", ".ZIP", ".RAR", ".CRB", ".WEBP"
     };
 
     public void open_filepath(String filepath) {
@@ -132,8 +132,7 @@ public class FileBrowser extends Activity {
                                 LinearLayout.LayoutParams.WRAP_CONTENT);
                 button_view.setLayoutParams(lp);
 
-                FileBrowserFileEntryView file_entry =
-                        new FileBrowserFileEntryView(this, null);
+                FileBrowserFileEntryView file_entry = new FileBrowserFileEntryView(this, null);
                 file_entry.filepath = child_file_obj.getAbsolutePath();
                 file_entry.render_filename = child_file_obj.getName();
 
