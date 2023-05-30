@@ -30,7 +30,12 @@ jobs:
     - run: ./gradle-6.5/bin/gradle wrapper
     - run: bash ./gradlew build
 
-    - run: mv app/build/outputs/apk/debug/app-debug.apk android_image_viewer.apk
+    - run: python3 move_apk_file.py --github_actions
+    - run: cat github_actions_artifact_path.log >> $GITHUB_ENV
+    - run: echo $GITHUB_ARTIFACT_NAME
+    - run: echo $GITHUB_ARTIFACT_PATH
+
     - uses: actions/upload-artifact@v2
       with:
-        path: android_image_viewer*.apk
+        name: $GITHUB_ARTIFACT_NAME
+        path: $GITHUB_ARTIFACT_PATH
