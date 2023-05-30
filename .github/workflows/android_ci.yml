@@ -31,9 +31,11 @@ jobs:
     - run: bash ./gradlew build
 
     - run: python3 move_apk_file.py --github_actions
-    - run: cat github_actions_artifact_path.log >> $GITHUB_ENV
-    - run: echo $GITHUB_ARTIFACT_NAME
-    - run: echo $GITHUB_ARTIFACT_PATH
+    - run: cat $GITHUB_ENV
+    # - run: cat github_actions_artifact_path.log
+    # - run: (cat github_actions_artifact_path.log) >> "$GITHUB_ENV"
+    # - run: echo $GITHUB_ARTIFACT_NAME
+    # - run: echo $GITHUB_ARTIFACT_PATH
 
     - uses: actions/upload-artifact@v2
       with:

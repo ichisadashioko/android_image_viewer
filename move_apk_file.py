@@ -19,8 +19,9 @@ output_filepath = os.path.abspath(artifact_filename)
 print(f'output_filepath {output_filepath}')
 
 if is_github_actions:
-    with open('github_actions_artifact_path.log', mode='wb') as outfile:
-        content = f'GITHUB_ARTIFACT_PATH={output_filepath}\nGITHUB_ARTIFACT_NAME={artifact_filename}'
-        outfile.write(output_filepath.encode('utf-8'))
+    github_env_filepath = os.environ['GITHUB_ENV']
+    with open(github_env_filepath, mode='ab+') as outfile:
+        outfile.write(f'GITHUB_ARTIFACT_PATH={output_filepath}\n'.encode('utf-8'))
+        outfile.write(f'GITHUB_ARTIFACT_NAME={artifact_filename}\n'.encode('utf-8'))
 
 os.rename(input_filepath, output_filepath)
