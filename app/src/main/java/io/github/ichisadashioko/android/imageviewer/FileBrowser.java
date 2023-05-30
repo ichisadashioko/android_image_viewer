@@ -1,6 +1,7 @@
 package io.github.ichisadashioko.android.imageviewer;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -74,6 +75,9 @@ public class FileBrowser extends Activity {
                     return;
                 }
 
+                Intent image_view_intent = new Intent(this, ImageViewActivity.class);
+                image_view_intent.putExtra("filepath", filepath);
+                startActivity(image_view_intent);
                 // TODO load and show image
             }
         } catch (Exception ex) {
