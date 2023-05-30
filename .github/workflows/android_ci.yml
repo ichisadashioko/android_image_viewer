@@ -39,5 +39,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: $GITHUB_ARTIFACT_NAME
-        path: $GITHUB_ARTIFACT_PATH
+        name: ${{ env.GITHUB_ARTIFACT_NAME }}
+        path: ${{ env.GITHUB_ARTIFACT_PATH }}
