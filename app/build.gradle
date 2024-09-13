@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "io.github.ichisadashioko.android.imageviewer"
+        applicationId "io.github.ichisadashioko.android.cameraapp"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1

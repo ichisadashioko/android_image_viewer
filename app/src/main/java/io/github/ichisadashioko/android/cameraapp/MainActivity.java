@@ -1,4 +1,4 @@
-package io.github.ichisadashioko.android.imageviewer;
+package io.github.ichisadashioko.android.cameraapp;
 
 import android.app.Activity;
 import android.content.Intent;
