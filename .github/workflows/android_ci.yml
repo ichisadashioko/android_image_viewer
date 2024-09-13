@@ -15,6 +15,9 @@ jobs:
         java-version: 11
 
     - uses: android-actions/setup-android@v3
+      with:
+        cmdline-tools-version: '7.0'
+        log-accepted-android-sdk-licenses: false
 
     # - run: wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
     # - run: unzip commandlinetools-linux-9477386_latest.zip
