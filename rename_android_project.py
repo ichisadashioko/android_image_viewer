@@ -9,10 +9,10 @@ G = '\033[92m'
 Y = '\033[93m'
 
 source_app_name = 'network_monitor'
-source_package = 'io.github.ichisadashioko.android.network_monitor'
+source_package = 'io.github.ichisadashioko.android.imageviewer'
 
-new_app_name = 'image_viewer'
-new_package = 'io.github.ichisadashioko.android.imageviewer'
+new_app_name = 'camera_app'
+new_package = 'io.github.ichisadashioko.android.cameraapp'
 
 parser = argparse.ArgumentParser()
 

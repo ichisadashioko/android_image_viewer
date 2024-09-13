@@ -7,21 +7,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+    />
+
+    <Button
+        android:id="@+id/button_todo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/open_file_browser_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="open_file_browser_view"
-            android:text="open file browser" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/main_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:onClick="button_todo_onclick"
+        android:text="button TODO"
+    />
 </LinearLayout>
