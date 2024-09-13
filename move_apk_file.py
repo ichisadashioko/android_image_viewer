@@ -21,6 +21,7 @@ print(f'output_filepath {output_filepath}')
 if is_github_actions:
     github_env_filepath = os.environ['GITHUB_ENV']
     with open(github_env_filepath, mode='ab+') as outfile:
+        outfile.write(b'\n')
         outfile.write(f'GITHUB_ARTIFACT_PATH={output_filepath}\n'.encode('utf-8'))
         outfile.write(f'GITHUB_ARTIFACT_NAME={artifact_filename}\n'.encode('utf-8'))
 
